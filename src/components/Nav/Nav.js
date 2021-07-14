@@ -1,6 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
+import { COLORS, SHADOWS } from '../../constants';
 const Nav = () => {
+	const Header = styled.header`
+		position: sticky;
+		top: 0;
+		background-color: ${COLORS.nav};
+		border-bottom: 1px solid ${COLORS.secondary};
+		box-shadow: ${SHADOWS.medium};
+	`;
+
 	const Wrapper = styled.div`
 		max-width: min(80ch, calc(100vw - 1rem));
 		padding: 1rem;
@@ -10,15 +19,7 @@ const Nav = () => {
 		grid-template-rows: 1fr 1fr;
 	`;
 	return (
-		<header
-			style={{
-				position: 'sticky',
-				top: 0,
-				backgroundColor: '#f4f7fe',
-				borderBottom: ' 1px solid #f4f7fe',
-				boxShadow: '0px 4px 6px -1px rgba(0, 0, 0, 0.25)',
-			}}
-		>
+		<Header>
 			<Wrapper>
 				<div style={{ gridArea: '1 / 1 / 2 / -1' }}>
 					<h2>Logo</h2>
@@ -27,7 +28,7 @@ const Nav = () => {
 					Links
 				</div>
 			</Wrapper>
-		</header>
+		</Header>
 	);
 };
 
